@@ -31,12 +31,12 @@ no_titles: true
 
 # LLM
 llm_enabled: true
-llm_provider: "gemini"  # local/openai/gemini
-llm_model: "gemini-1.5-flash"  # free tier model
+llm_provider: "openai"  # local/openai/gemini
+llm_model: "gpt-4o-mini"  # cost-effective model
 temperature: 0
 max_tokens: 220
 cache_path: "data/llm/spy_analysis.jsonl"
-llm_rate_limit_delay: 4  # seconds between API calls (for free tier rate limits)
+llm_rate_limit_delay: 0.5  # seconds between API calls (OpenAI has higher rate limits)
 
 # FinBERT
 finbert_model: "ProsusAI/finbert"
