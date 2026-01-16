@@ -1,0 +1,57 @@
+# Data source
+ticker: "SPY"
+start_date: "2014-01-01"
+end_date: "2017-12-31"
+
+# Dataset parameters
+lookback_days: 30
+horizon_days: 5
+image_size: 112  # match paper size
+stride: 5  # larger stride to reduce samples (and LLM calls)
+label_rule: "forward_return_gt_0"  # y=1 if close[t+h]/close[t]-1 > 0
+
+# Splits (strict, by date) - smaller dataset for cost savings
+train_start: "2015-01-01"
+train_end: "2015-12-31"
+val_start: "2016-01-01"
+val_end: "2016-06-30"
+test_start: "2016-07-01"
+test_end: "2016-12-31"
+
+# Chart rendering
+include_volume: true
+include_rsi_panel: true
+overlay_sma20: true
+overlay_bollinger: true
+bb_window: 20
+bb_k: 2
+rsi_window: 14
+hide_axes_labels: true
+no_titles: true
+
+# LLM
+llm_enabled: true
+llm_provider: "gemini"  # local/openai/gemini
+llm_model: "gemini-1.5-flash"  # free tier model
+temperature: 0
+max_tokens: 220
+cache_path: "data/llm/spy_analysis.jsonl"
+llm_rate_limit_delay: 4  # seconds between API calls (for free tier rate limits)
+
+# FinBERT
+finbert_model: "ProsusAI/finbert"
+embedding_dim: 768
+
+# Training (adjusted for smaller dataset)
+batch_size: 16
+epochs: 20
+lr: 1.0e-4
+weight_decay: 1.0e-4
+early_stop_patience: 5
+seed: 42
+
+# Fusion model
+use_numeric_features: true
+use_text_embeddings: true
+cnn_backbone: "resnet18"
+dropout: 0.3

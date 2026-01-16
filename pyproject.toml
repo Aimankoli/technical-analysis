@@ -1,0 +1,15 @@
+[project]
+name = "technical-analysis"
+version = "0.1.0"
+description = "ML research tool for analyzing stock technical analysis patterns"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "yfinance>=0.2.40",
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "ta>=0.11.0",
+    "mplfinance>=0.12.10b0",
+    "matplotlib>=3.8.0",
+    "pillow>=10.0.0",
+]
