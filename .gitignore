@@ -1,3 +1,27 @@
 CLAUDE.md
 .venv
 venv
+
+# Generated data directories
+data/raw/
+data/samples/
+data/images/
+data/llm/
+data/embeddings/
+data/models/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
